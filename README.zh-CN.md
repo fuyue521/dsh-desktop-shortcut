@@ -29,7 +29,19 @@ DeepSeek Harness 是一个可组合的 AI agent 运行框架。每次启动 `dsh
 
 ## 安装
 
-需要先安装 [pnpm](https://pnpm.io/)，然后在你自己的 DeepSeek Harness 环境中执行：
+需要先安装 [pnpm](https://pnpm.io/)，然后在你自己的 DeepSeek Harness 环境中执行。
+
+### 安装 pnpm
+
+```bash
+npm install -g pnpm
+```
+
+或者使用 Corepack：
+
+```bash
+corepack enable pnpm
+```
 
 ### 从 GitHub 安装
 

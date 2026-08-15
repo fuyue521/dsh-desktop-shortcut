@@ -29,7 +29,19 @@ This plugin solves that:
 
 ## Install
 
-Make sure [pnpm](https://pnpm.io/) is installed, then run inside your DeepSeek Harness environment:
+Make sure [pnpm](https://pnpm.io/) is installed, then run inside your DeepSeek Harness environment.
+
+### Install pnpm
+
+```bash
+npm install -g pnpm
+```
+
+Or use Corepack if you prefer:
+
+```bash
+corepack enable pnpm
+```
 
 ### From GitHub
 
