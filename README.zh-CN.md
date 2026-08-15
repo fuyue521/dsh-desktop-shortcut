@@ -1,5 +1,7 @@
 # dsh-desktop-shortcut
 
+[![Awesome DSH Plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)
+
 > [English](README.md) | **中文**
 
 ![DeepSeek Harness Icon](assets/DeepSeek%20Harness.png?raw=true)
