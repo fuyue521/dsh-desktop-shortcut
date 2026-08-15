@@ -2,6 +2,10 @@
   "name": "dsh-desktop-shortcut",
   "version": "0.1.0",
   "description": "DeepSeek Harness plugin: creates a Windows desktop shortcut that launches dsh web",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fuyue521/dsh-desktop-shortcut.git"
+  },
   "type": "module",
   "main": "lib/index.js",
   "exports": {
