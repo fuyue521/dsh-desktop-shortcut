@@ -10,7 +10,7 @@ DeepSeek Harness 是一个可组合的 AI agent 运行框架。每次启动 `dsh
 
 这个插件解决的就是这件事：
 
-- 安装后，`dsh web` 每次启动时自动在 Windows 桌面创建/刷新 **DeepSeek Harness** 快捷方式
+- 安装后，`dsh web` 启动后会自动在 Windows 桌面创建/刷新 **DeepSeek Harness** 快捷方式
 - 图标使用 DeepSeek 品牌风格的多尺寸 `.ico`
 - 只依赖 Node 内置模块和 PowerShell，轻量、无第三方运行时依赖
 - 其他平台自动跳过，不影响非 Windows 用户
