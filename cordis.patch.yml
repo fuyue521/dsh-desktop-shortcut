@@ -14,3 +14,5 @@
       config:
         shortcutName: DeepSeek Harness
         dshArgs: web
+        port: 3080
+        closeBrowserStopsService: true

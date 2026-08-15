@@ -1,6 +1,6 @@
 # dsh-desktop-shortcut
 
-> [English](README.en.md) | **简体中文**
+> [English](README.md) | **中文**
 
 ![DeepSeek Harness Icon](assets/DeepSeek%20Harness.png?raw=true)
 
@@ -18,6 +18,8 @@ DeepSeek Harness 是一个可组合的 AI agent 运行框架。每次启动 `dsh
 ## 特性
 
 - 安装后，每次启动 `dsh web` 都会自动确保桌面快捷方式存在
+- 双击快捷方式会自动启动 `dsh web`，并在 Web UI 就绪后自动打开浏览器
+- 默认使用 Edge/Chrome 应用窗口模式，**关闭 Harness 窗口会自动停止服务**
 - 使用 DeepSeek 风格图标（`.ico`，包含 256/128/64/48/32/16 多尺寸）
 - 快捷方式指向 `cmd.exe /c "dsh.cmd" web`
 - 仅 Windows 生效，其他平台自动跳过
@@ -56,7 +58,7 @@ dsh web
 C:\Users\<你>\Desktop\DeepSeek Harness.lnk
 ```
 
-双击快捷方式就会运行 `dsh web`。
+双击快捷方式会启动 `dsh web`，并自动打开浏览器访问 `http://127.0.0.1:3080`。默认情况下，**关闭这个 Harness 浏览器窗口，服务也会自动停止**。
 
 ## 配置
 
@@ -77,7 +79,24 @@ C:\Users\<你>\Desktop\DeepSeek Harness.lnk
   config:
     shortcutName: My Harness
     dshArgs: web --port 4000
+    port: 4000
     workingDirectory: C:\Users\me
+```
+
+如果改了 `dshArgs` 里的端口，记得同步设置 `port`；也可以直接用 `url` 指定完整地址：
+
+```yaml
+- id: desktop-shortcut
+  config:
+    url: http://127.0.0.1:4000
+```
+
+如果你不想“关窗口即停服务”，可以关闭该模式：
+
+```yaml
+- id: desktop-shortcut
+  config:
+    closeBrowserStopsService: false
 ```
 
 `icon` 配置项也支持：填相对于插件包根目录的路径，或绝对路径。
@@ -103,7 +122,8 @@ dsh-desktop-shortcut/
 │  └─ build-icon.ps1    # 图标生成/重建脚本（可选）
 ├─ cordis.patch.yml     # dsh bundle patch
 ├─ package.json
-└─ README.md
+├─ README.md            # English（默认）
+└─ README.zh-CN.md      # 中文
 ```
 
 ## License
