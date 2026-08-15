@@ -20,6 +20,7 @@ DeepSeek Harness 是一个可组合的 AI agent 运行框架。每次启动 `dsh
 ## 特性
 
 - 安装后，每次启动 `dsh web` 都会自动确保桌面快捷方式存在
+- Web UI 中会有一个可随意拖动的悬浮**刷新**按钮，点击即可刷新页面
 - 双击快捷方式会自动启动 `dsh web`，并在 Web UI 就绪后自动打开浏览器
 - 默认使用 Edge/Chrome 应用窗口模式，**关闭 Harness 窗口会自动停止服务**
 - 使用 DeepSeek 风格图标（`.ico`，包含 256/128/64/48/32/16 多尺寸）
@@ -79,6 +80,8 @@ C:\Users\<你>\Desktop\DeepSeek Harness.lnk
 ```
 
 双击快捷方式会启动 `dsh web`，并自动打开浏览器访问 `http://127.0.0.1:3080`。默认情况下，**关闭这个 Harness 浏览器窗口，服务也会自动停止**。
+
+Web UI 右下角会出现一个悬浮**刷新**按钮，可以按住拖动到任意位置，点击即可刷新页面。
 
 ## 配置
 
@@ -179,7 +182,8 @@ dsh-desktop-shortcut/
 │  ├─ DeepSeek Harness.ico
 │  └─ DeepSeek Harness.png
 ├─ lib/
-│  └─ index.js          # Cordis 插件本体
+│  ├─ index.js          # Cordis 插件本体（快捷方式创建）
+│  └─ client.js         # Web UI 悬浮刷新按钮
 ├─ scripts/
 │  └─ build-icon.ps1    # 图标生成/重建脚本（可选）
 ├─ cordis.patch.yml     # dsh bundle patch

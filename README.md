@@ -20,6 +20,7 @@ This plugin solves that:
 ## Features
 
 - Ensures the desktop shortcut exists every time `dsh web` starts
+- Adds a floating, draggable **刷新** button in the Web UI that reloads the page on demand
 - Double-clicking the shortcut starts `dsh web` and automatically opens the browser when the web UI is ready
 - Uses Edge/Chrome app-window mode by default: **closing the Harness window stops the service**
 - Multi-size DeepSeek-style icon (256 / 128 / 64 / 48 / 32 / 16)
@@ -79,6 +80,8 @@ C:\Users\<you>\Desktop\DeepSeek Harness.lnk
 ```
 
 Double-click the shortcut to launch `dsh web` and automatically open the browser at `http://127.0.0.1:3080`. By default, **closing that Harness browser window also stops the service**.
+
+In the Web UI you will also see a small floating **刷新** button (usually at the bottom-right). It can be dragged anywhere and clicked to reload the page.
 
 ## Configuration
 
@@ -173,7 +176,8 @@ dsh-desktop-shortcut/
 │  ├─ DeepSeek Harness.ico
 │  └─ DeepSeek Harness.png
 ├─ lib/
-│  └─ index.js          # Cordis plugin entry
+│  ├─ index.js          # Cordis plugin entry (shortcut creation)
+│  └─ client.js         # Web UI floating refresh button
 ├─ scripts/
 │  └─ build-icon.ps1    # Optional icon rebuild script
 ├─ cordis.patch.yml     # dsh bundle patch
