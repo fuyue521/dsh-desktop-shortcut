@@ -10,7 +10,7 @@ DeepSeek Harness is a composable AI agent runtime. Typing `dsh web` every time i
 
 This plugin solves that:
 
-- Every time `dsh web` starts, it automatically creates/refreshes a **DeepSeek Harness** shortcut on the Windows desktop
+- After installation, the shortcut of **DeepSeek Harness** will be automatically created/refreshed on the Windows desktop upon the launch of `dsh web`
 - Uses a DeepSeek-style multi-size `.ico` icon
 - Lightweight: only Node built-ins and PowerShell, no third-party runtime dependencies
 - Non-Windows platforms are skipped automatically
