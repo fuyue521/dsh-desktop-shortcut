@@ -130,7 +130,7 @@ Web UI 右下角会出现一个悬浮**刷新**按钮，可以按住拖动到任
     browser: chrome   # auto | edge | chrome
 ```
 
-- `auto`（默认）：优先 Edge，找不到再用 Chrome
+- `auto`（默认）：优先 Chrome，找不到再用 Edge
 - `edge`：只用 Edge
 - `chrome`：只用 Chrome
 

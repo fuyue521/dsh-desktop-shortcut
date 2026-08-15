@@ -130,7 +130,7 @@ Choose which browser opens the Harness window:
     browser: chrome   # auto | edge | chrome
 ```
 
-- `auto` (default): Edge first, then Chrome
+- `auto` (default): Chrome first, then Edge
 - `edge`: use Edge only
 - `chrome`: use Chrome only
 
