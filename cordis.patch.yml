@@ -16,3 +16,4 @@
         dshArgs: web
         port: 3080
         closeBrowserStopsService: true
+        browser: auto

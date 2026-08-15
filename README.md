@@ -122,6 +122,18 @@ If you do not want closing the window to stop the service, disable the mode:
     closeBrowserStopsService: false
 ```
 
+Choose which browser opens the Harness window:
+
+```yaml
+- id: desktop-shortcut
+  config:
+    browser: chrome   # auto | edge | chrome
+```
+
+- `auto` (default): Edge first, then Chrome
+- `edge`: use Edge only
+- `chrome`: use Chrome only
+
 ## Custom Icon
 
 You can use your own icon instead of the default one.

@@ -122,6 +122,18 @@ Web UI 右下角会出现一个悬浮**刷新**按钮，可以按住拖动到任
     closeBrowserStopsService: false
 ```
 
+选择打开 Harness 窗口的浏览器：
+
+```yaml
+- id: desktop-shortcut
+  config:
+    browser: chrome   # auto | edge | chrome
+```
+
+- `auto`（默认）：优先 Edge，找不到再用 Chrome
+- `edge`：只用 Edge
+- `chrome`：只用 Chrome
+
 ## 自定义图标
 
 你可以把自己的图标换成默认图标。
