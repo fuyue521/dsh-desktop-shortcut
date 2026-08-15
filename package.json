@@ -44,6 +44,7 @@
     },
     "client": {
       "platform": "web",
+      "immediately": true,
       "inject": [
         "slots"
       ]
