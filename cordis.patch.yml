@@ -1,0 +1,16 @@
+# dsh-desktop-shortcut bundle patch.
+#
+# This patch inserts one loader row into the profile composition. The row
+# points back at this package's own Cordis plugin, so installing this package
+# through `dsh plugin` both adds the dependency and activates the bundle layer.
+#
+# Install:
+#   dsh plugin --profile web add dsh-desktop-shortcut
+# Or from a local checkout:
+#   dsh plugin --profile web add .
+- insert:
+    - id: desktop-shortcut
+      name: dsh-desktop-shortcut
+      config:
+        shortcutName: DeepSeek Harness
+        dshArgs: web

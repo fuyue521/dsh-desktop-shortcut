@@ -1,0 +1,40 @@
+{
+  "name": "dsh-desktop-shortcut",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness plugin: creates a Windows desktop shortcut that launches dsh web",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {},
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "desktop",
+    "shortcut",
+    "windows"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
