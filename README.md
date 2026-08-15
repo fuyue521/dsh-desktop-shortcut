@@ -99,7 +99,43 @@ If you do not want closing the window to stop the service, disable the mode:
     closeBrowserStopsService: false
 ```
 
-The `icon` option also accepts a path relative to the package root, or an absolute path.
+## Custom Icon
+
+You can use your own icon instead of the default one.
+
+### Option 1: Change the shortcut icon manually (temporary)
+
+Right-click the **DeepSeek Harness** desktop shortcut → **Properties** → **Change Icon** → pick your `.ico` file.
+
+> Note: the next time `dsh web` starts, the plugin may refresh the shortcut and restore the default icon.
+
+### Option 2: Set a persistent icon through plugin config (recommended)
+
+Edit your profile patch:
+
+`C:\Users\<you>\.dsh\profiles\web\cordis.patch.yml`
+
+```yaml
+- id: desktop-shortcut
+  config:
+    icon: C:\Users\<you>\Pictures\my-icon.ico
+```
+
+You can also use a path relative to the plugin package root:
+
+```yaml
+- id: desktop-shortcut
+  config:
+    icon: assets/MyIcon.ico
+```
+
+Then restart `dsh web` once; the plugin will refresh the shortcut with your icon.
+
+### Option 3: Change the default icon for everyone
+
+Replace `assets/DeepSeek Harness.ico` in this repository and push the change. New users who install the plugin will get the new default icon.
+
+> Tip: Use a multi-size `.ico` (256 / 128 / 64 / 48 / 32 / 16) for the best result on the desktop, taskbar, and small views.
 
 ## Uninstall
 

@@ -99,7 +99,49 @@ C:\Users\<你>\Desktop\DeepSeek Harness.lnk
     closeBrowserStopsService: false
 ```
 
-`icon` 配置项也支持：填相对于插件包根目录的路径，或绝对路径。
+## 自定义图标
+
+你可以把自己的图标换成默认图标。
+
+### 方式一：手动改快捷方式图标（临时）
+
+右键桌面上的 **DeepSeek Harness** 快捷方式 → **属性** → **更改图标** → 选择自己的 `.ico` 文件。
+
+> 注意：下次启动 `dsh web` 时，插件刷新快捷方式可能会恢复成默认图标。
+
+### 方式二：通过插件配置设置图标（推荐，可持久保存）
+
+编辑你自己的 profile 配置：
+
+`C:\Users\<你>\.dsh\profiles\web\cordis.patch.yml`
+
+```yaml
+- id: desktop-shortcut
+  config:
+    icon: C:\Users\<你>\Pictures\my-icon.ico
+```
+
+也可以写相对于插件包根目录的路径：
+
+```yaml
+- id: desktop-shortcut
+  config:
+    icon: assets/MyIcon.ico
+```
+
+然后重新启动一次 `dsh web`，插件就会用这个图标刷新快捷方式。
+
+### 方式三：修改插件默认图标（给所有用户）
+
+替换本仓库里的：
+
+```text
+assets/DeepSeek Harness.ico
+```
+
+替换后重新提交推送。以后安装这个插件的新用户默认就会使用新图标。
+
+> 小提示：推荐使用多尺寸 `.ico`（256 / 128 / 64 / 48 / 32 / 16），桌面、任务栏、小图标显示效果最好。
 
 ## 卸载
 
