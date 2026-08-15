@@ -43,6 +43,12 @@ Or use Corepack if you prefer:
 corepack enable pnpm
 ```
 
+### From npm (recommended)
+
+```bash
+dsh plugin --profile web add dsh-desktop-shortcut
+```
+
 ### From GitHub
 
 ```bash

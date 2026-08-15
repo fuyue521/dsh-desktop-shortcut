@@ -43,6 +43,12 @@ npm install -g pnpm
 corepack enable pnpm
 ```
 
+### 从 npm 安装（推荐）
+
+```bash
+dsh plugin --profile web add dsh-desktop-shortcut
+```
+
 ### 从 GitHub 安装
 
 ```bash
