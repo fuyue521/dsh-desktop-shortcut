@@ -4,44 +4,30 @@
 
 > [English](README.md) | **中文**
 
+> 一键为 DeepSeek-Harness（DSH）网页版生成 Windows 桌面快捷方式工具
+
+## ✨ 项目介绍
+
+DeepSeek-Harness（dsh web）网页版没有官方桌面入口。  
+本工具可以快速生成 Windows 桌面快捷方式，双击直接打开 DSH Web，免去复制粘贴网址的麻烦。
+
+同时还会在 Web UI 中加入一个可拖动的悬浮刷新按钮，让日常使用更顺手。
+
+## 🖼️ 图标展示
+
 ![DeepSeek Harness Icon](assets/DeepSeek%20Harness.png?raw=true)
 
-## 关于本项目
+## 🚀 使用方法
 
-DeepSeek Harness 是一个可组合的 AI agent 运行框架。每次启动 `dsh web` 都要手动敲命令、找路径，多少有点麻烦。
-
-这个插件解决的就是这件事：
-
-- 安装后，`dsh web` 启动后会自动在 Windows 桌面创建/刷新 **DeepSeek Harness** 快捷方式
-- 图标使用 DeepSeek 品牌风格的多尺寸 `.ico`
-- 只依赖 Node 内置模块和 PowerShell，轻量、无第三方运行时依赖
-- 其他平台自动跳过，不影响非 Windows 用户
-
-## 特性
-
-- 安装后，每次启动 `dsh web` 都会自动确保桌面快捷方式存在
-- Web UI 中会有一个可随意拖动的悬浮**刷新**按钮，点击即可刷新页面
-- 双击快捷方式会自动启动 `dsh web`，并在 Web UI 就绪后自动打开浏览器
-- 默认使用 Edge/Chrome 应用窗口模式，**关闭 Harness 窗口会自动停止服务**
-- 使用 DeepSeek 风格图标（`.ico`，包含 256/128/64/48/32/16 多尺寸）
-- 快捷方式指向 `cmd.exe /c "dsh.cmd" web`
-- 仅 Windows 生效，其他平台自动跳过
-- 无第三方运行时依赖，只使用 Node 内置模块和 PowerShell
-
-## 安装
-
-需要先安装 [pnpm](https://pnpm.io/)，然后在你自己的 DeepSeek Harness 环境中执行。
+1. 安装插件
+2. 启动 `dsh web`
+3. 桌面自动生成 **DeepSeek Harness** 快捷方式
+4. 双击图标直接打开 DSH Web
 
 ### 安装 pnpm
 
 ```bash
 npm install -g pnpm
-```
-
-或者使用 Corepack：
-
-```bash
-corepack enable pnpm
 ```
 
 ### 从 npm 安装（推荐）
@@ -56,154 +42,48 @@ dsh plugin --profile web add dsh-desktop-shortcut
 dsh plugin --profile web add github:fuyue521/dsh-desktop-shortcut
 ```
 
-### 从本地目录安装
-
-```bash
-cd dsh-desktop-shortcut
-dsh plugin --profile web add .
-```
-
-`dsh plugin` 会自动识别包里的 `dsh.bundle` 声明，并把它加入该 profile 的 `dsh.profile.bundles`。
-
-## 使用
-
-安装后正常启动：
+安装后启动：
 
 ```bash
 dsh web
 ```
 
-插件会在启动时自动创建或刷新：
+## 📋 功能
 
-```
-C:\Users\<你>\Desktop\DeepSeek Harness.lnk
-```
+- ✅ 一键生成 Windows 桌面快捷方式
+- ✅ 双击快捷方式自动启动 `dsh web` 并打开浏览器
+- ✅ Web UI 悬浮可拖动刷新按钮
+- ✅ 点击刷新按钮有旋转动画 + 绿色“刷新成功”反馈
+- ✅ AI 正在回复时自动显示红色“AI正在回复中”并禁止刷新
+- ✅ 可配置浏览器：`auto` / `edge` / `chrome`
+- ✅ 支持自定义快捷方式名称、图标、启动参数
 
-双击快捷方式会启动 `dsh web`，并自动打开浏览器访问 `http://127.0.0.1:3080`。默认情况下，**关闭这个 Harness 浏览器窗口，服务也会自动停止**。
+## ⚠️ 前置条件
 
-Web UI 右下角会出现一个悬浮**刷新**按钮，可以按住拖动到任意位置，点击即可刷新页面。
+- Windows 系统
+- 本地已经成功运行 DeepSeek Harness（dsh web）
+- 已安装 Node.js / pnpm / dsh CLI
 
-## 配置
+## 📝 常见问题
 
-默认配置在 `cordis.patch.yml` 中：
+**Q：双击快捷方式打不开网页？**  
+A：确认 `dsh web` 服务已经启动，访问地址正确（默认 `http://127.0.0.1:3080`）。
 
-```yaml
-- id: desktop-shortcut
-  name: dsh-desktop-shortcut
-  config:
-    shortcutName: DeepSeek Harness
-    dshArgs: web
-```
+**Q：点击刷新按钮没有反应？**  
+A：如果 AI 正在回复，按钮会显示红色“AI正在回复中”并禁用刷新，请等待回复结束。
 
-可在自己的 profile `cordis.patch.yml` 里按 `id: desktop-shortcut` 覆盖：
-
-```yaml
-- id: desktop-shortcut
-  config:
-    shortcutName: My Harness
-    dshArgs: web --port 4000
-    port: 4000
-    workingDirectory: C:\Users\me
-```
-
-如果改了 `dshArgs` 里的端口，记得同步设置 `port`；也可以直接用 `url` 指定完整地址：
+**Q：我想用 Chrome 打开，不用 Edge？**  
+A：在 profile 的 `cordis.patch.yml` 中配置：
 
 ```yaml
 - id: desktop-shortcut
   config:
-    url: http://127.0.0.1:4000
+    browser: chrome
 ```
 
-如果你不想“关窗口即停服务”，可以关闭该模式：
+**Q：关闭 Harness 浏览器窗口后服务没有停止？**  
+A：请确认使用的是最新版本；如果仍有延迟，可以手动关闭命令行窗口。
 
-```yaml
-- id: desktop-shortcut
-  config:
-    closeBrowserStopsService: false
-```
-
-选择打开 Harness 窗口的浏览器：
-
-```yaml
-- id: desktop-shortcut
-  config:
-    browser: chrome   # auto | edge | chrome
-```
-
-- `auto`（默认）：优先 Chrome，找不到再用 Edge
-- `edge`：只用 Edge
-- `chrome`：只用 Chrome
-
-## 自定义图标
-
-你可以把自己的图标换成默认图标。
-
-### 方式一：手动改快捷方式图标（临时）
-
-右键桌面上的 **DeepSeek Harness** 快捷方式 → **属性** → **更改图标** → 选择自己的 `.ico` 文件。
-
-> 注意：下次启动 `dsh web` 时，插件刷新快捷方式可能会恢复成默认图标。
-
-### 方式二：通过插件配置设置图标（推荐，可持久保存）
-
-编辑你自己的 profile 配置：
-
-`C:\Users\<你>\.dsh\profiles\web\cordis.patch.yml`
-
-```yaml
-- id: desktop-shortcut
-  config:
-    icon: C:\Users\<你>\Pictures\my-icon.ico
-```
-
-也可以写相对于插件包根目录的路径：
-
-```yaml
-- id: desktop-shortcut
-  config:
-    icon: assets/MyIcon.ico
-```
-
-然后重新启动一次 `dsh web`，插件就会用这个图标刷新快捷方式。
-
-### 方式三：修改插件默认图标（给所有用户）
-
-替换本仓库里的：
-
-```text
-assets/DeepSeek Harness.ico
-```
-
-替换后重新提交推送。以后安装这个插件的新用户默认就会使用新图标。
-
-> 小提示：推荐使用多尺寸 `.ico`（256 / 128 / 64 / 48 / 32 / 16），桌面、任务栏、小图标显示效果最好。
-
-## 卸载
-
-```bash
-dsh plugin --profile web remove dsh-desktop-shortcut
-```
-
-卸载不会自动删除已创建的桌面快捷方式，可手动删除。
-
-## 目录结构
-
-```text
-dsh-desktop-shortcut/
-├─ assets/
-│  ├─ DeepSeek Harness.ico
-│  └─ DeepSeek Harness.png
-├─ lib/
-│  ├─ index.js          # Cordis 插件本体（快捷方式创建）
-│  └─ client.js         # Web UI 悬浮刷新按钮
-├─ scripts/
-│  └─ build-icon.ps1    # 图标生成/重建脚本（可选）
-├─ cordis.patch.yml     # dsh bundle patch
-├─ package.json
-├─ README.md            # English（默认）
-└─ README.zh-CN.md      # 中文
-```
-
-## License
+## 📄 License
 
 MIT
