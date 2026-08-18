@@ -22,7 +22,9 @@
     "README.zh-CN.md",
     "LICENSE"
   ],
-  "scripts": {},
+  "scripts": {
+    "test": "node --test tests/"
+  },
   "keywords": [
     "deepseek",
     "harness",

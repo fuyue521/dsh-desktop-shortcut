@@ -1,4 +1,4 @@
-﻿# dsh-desktop-shortcut bundle patch.
+# dsh-desktop-shortcut bundle patch.
 #
 # This patch inserts one loader row into the profile composition. The row
 # points back at this package's own Cordis plugin, so installing this package
@@ -23,3 +23,4 @@
         probeIntervalMs: 100
         pluginCheckEnabled: true
         pluginCheckIntervalMs: 100
+        pluginCheckPath: /plugins/dsh-desktop-shortcut/client.js
