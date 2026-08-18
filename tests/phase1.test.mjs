@@ -68,3 +68,9 @@ test("probe and timing values are injected", () => {
   assert.match(script, /'100'/);
   assert.match(script, /startup-timing\.log/);
 });
+
+test("launcher error uses MessageBox, not raw cmd echo", () => {
+  const script = render();
+  assert.match(script, /MessageBox/);
+  assert.doesNotMatch(script, /\/c echo ' \+ \$errText/);
+});
